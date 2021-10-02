@@ -1,0 +1,39 @@
+// Imports
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import "./components/responsive";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Inter;
+  color: #fff;
+}
+
+.container-fluid {
+  min-height: 100vh;
+  //border: 0.1rem solid red;
+  .background {
+    //border: 0.1rem solid blue;
+    min-height: 99.9vh;
+    //padding: 4rem 10rem;
+    background-image: url(../images/day.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    .top {
+      min-height: 30%;
+      //border: 0.1rem solid green;
+      button {
+        border: none;
+        background: none;
+      }
+    }
+    .bottom {
+      //border: 0.1rem solid yellow;
+      min-height: 50%;
+    }
+  }
+}

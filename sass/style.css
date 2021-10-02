@@ -1,3 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+body {
+  font-family: Inter;
+  color: #fff;
+}
+
+.container-fluid {
+  min-height: 100vh;
+}
+.container-fluid .background {
+  min-height: 99.9vh;
+  background-image: url(../images/day.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.container-fluid .background .top {
+  min-height: 30%;
+}
+.container-fluid .background .top button {
+  border: none;
+  background: none;
+}
+.container-fluid .background .bottom {
+  min-height: 50%;
+}
 
 /*# sourceMappingURL=style.css.map */
