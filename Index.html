@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./src//assets/clock.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./images/clock.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="./sass/style.css">
     <title>Clock App</title>
@@ -13,7 +13,7 @@
     
     <div class="container-fluid">
         <div class="row background justify-content-center align-item-center">
-            <div class="col-12 col-lg-9 py-4 p-sm-5 d-flex flex-column justify-content-between">
+            <div class="col-12 col-lg-9 py-4 p-sm-5 d-flex flex-column justify-content-evenly">
                 <!-- 1. Row containing quotes sent back from api along with refresh button.  -->
                 <div class="row top">
                     <div class="col-12 col-lg-6 d-flex align-items-start">
@@ -28,7 +28,21 @@
                 </div>
                 <!-- 2. Row containing time date and button to reveal row underneath. -->
                 <div class="row bottom">
-
+                    <div class="col-12 col-md-9 col-xl-7 py-4  py-sm-0 d-flex flex-sm-row flex-column align-items-center  justify-content-between">
+                        <img id='sun' src="./images/desktop/icon-sun.svg" alt="sun">
+                        <h3 class="m-0 text-uppercase time-of-day"></h3>
+                    </div>
+                    <div id='current-time' class="col-12 col-sm-8 d-flex text-center ">
+                        <h1 class="set-time ng m-0"></h1>
+                        <div class="ry w-100">
+                            <h2 id="am-pm" class=" text-uppercase  fw-normal"></h2>
+                            <h2 class="fw-normal">BST</h2>
+                        </div>
+                    </div>
+                    <div class="col-12 d-flex align-items-center  justify-content-between">
+                        <h3 id="country" class="text-uppercase"></h3>
+                        <button class="shadow">More</button>
+                    </div>
                 </div>
             </div>
         </div>

@@ -11,6 +11,15 @@
 body {
   font-family: Inter;
   color: #fff;
+  //overflow-y: hidden;
+}
+
+h1 {
+  font-size: 10rem;
+}
+
+h2 {
+  font-size: 4rem;
 }
 
 .container-fluid {
@@ -18,7 +27,7 @@ body {
   //border: 0.1rem solid red;
   .background {
     //border: 0.1rem solid blue;
-    min-height: 99.9vh;
+    min-height: 99.8vh;
     //padding: 4rem 10rem;
     background-image: url(../images/day.png);
     background-repeat: no-repeat;
@@ -34,6 +43,13 @@ body {
     .bottom {
       //border: 0.1rem solid yellow;
       min-height: 50%;
+      button {
+        border: none;
+        background: white;
+        font-weight: bolder;
+        border-radius: 2rem;
+        padding: 0.5rem 2rem;
+      }
     }
   }
 }
