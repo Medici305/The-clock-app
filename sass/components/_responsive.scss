@@ -19,9 +19,25 @@
     }
   }
 
+  .bottom {
+    .ry {
+      justify-content: space-evenly !important;
+    }
+    h2 {
+      font-size: 2rem !important;
+    }
+  }
+
   .quote-text-box {
     align-items: center !important;
     justify-content: space-around !important;
     text-align: center;
+  }
+}
+
+// Tablet view
+@media only screen and (max-width: 768px) {
+  h1 {
+    font-size: 8.5rem !important;
   }
 }
