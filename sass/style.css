@@ -18,6 +18,12 @@
   .undercard .box {
     text-align: center;
   }
+
+  .quote-text-box {
+    align-items: center !important;
+    justify-content: space-around !important;
+    text-align: center;
+  }
 }
 * {
   margin: 0;
