@@ -23,8 +23,49 @@ const setTime = () => {
   arbitron(hours, ampm);
 };
 
-// Set data for card underneath (timezone/day of week/year and week number);
-const setCardDetails = () => {};
+// Get day of the week.
+const getDayOfWeek = () => {
+  const days = [
+    "sunday",
+    "monday",
+    "tuesday",
+    "wednesday",
+    "thursday",
+    "friday",
+    "saturday",
+  ];
+  const d = new Date();
+  const n = days[d.getDay()];
+  return n;
+};
+
+// Get of the year
+const getDayOfYear = () => {
+  const now = new Date();
+  const start = new Date(now.getFullYear(), 0, 0);
+  const diff = now - start;
+  const oneDay = 1000 * 60 * 60 * 24;
+  const day = Math.floor(diff / oneDay);
+  return day;
+};
+
+// Get week number of the year
+const getWeekNr = () => {
+  const currentdate = new Date();
+  const oneJan = new Date(currentdate.getFullYear(), 0, 1);
+  const numberOfDays = Math.floor(
+    (currentdate - oneJan) / (24 * 60 * 60 * 1000)
+  );
+  const result = Math.ceil((currentdate.getDay() + 1 + numberOfDays) / 7);
+  return result;
+};
+
+// Set all the number into card under background.
+const setDateData = () => {
+  document.getElementById("day-of-week").innerHTML = getDayOfWeek();
+  document.getElementById("day-of-year").innerHTML = getDayOfYear();
+  document.getElementById("week-nr").innerHTML = getWeekNr();
+};
 
 // Set the specific period of the day. Change background and sun/moon logo.
 const arbitron = (hour, ampm) => {
@@ -70,15 +111,15 @@ const getCoordinates = () => {
 
 // Set the location of user (country, city) via using user lat and long details.
 const showPosition = async (position) => {
+  const timeZone = document.getElementById("time-zone");
   const country = document.getElementById("country");
   let lat = position.coords.latitude;
   let long = position.coords.longitude;
   let locationObj = await getCity(lat, long);
   let countryCode = locationObj.address.country;
-  const date = new Date();
-  const offset = date.getTimezoneOffset();
-  console.log(offset); 
   let city = locationObj.address.city;
+  console.log(locationObj);
+  timeZone.innerHTML = locationObj.address.city;
   country.innerHTML = `${countryCode}, ${
     city || locationObj.address.country_code
   }`;
@@ -119,7 +160,7 @@ const animationSlide = () => {
     moreBtn.innerHTML = "Less";
     bg.classList.add("slide");
     gsap.to(bg, 3, {
-      y: "-50%",
+      y: "-60%",
       ease: "elastic",
     });
   } else {
@@ -132,11 +173,15 @@ const animationSlide = () => {
   }
 };
 
-// Function Calls
-getCoordinates();
-
 // Event-handlers
-document.addEventListener("onload", run(), setTime());
+document.addEventListener(
+  "onload",
+  run(),
+  setTime(),
+  getCoordinates(),
+  setDateData()
+);
+
 refreshBtn.addEventListener("click", () => {
   run();
 });
