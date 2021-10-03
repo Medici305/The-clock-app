@@ -118,7 +118,6 @@ const showPosition = async (position) => {
   let locationObj = await getCity(lat, long);
   let countryCode = locationObj.address.country;
   let city = locationObj.address.city;
-  console.log(locationObj);
   timeZone.innerHTML = locationObj.address.city;
   country.innerHTML = `${countryCode}, ${
     city || locationObj.address.country_code
