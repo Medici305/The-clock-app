@@ -1,5 +1,6 @@
 // Elements
 const refreshBtn = document.querySelector(".refresh-btn");
+const moreBtn = document.getElementById("more-button");
 const quote = document.getElementById("quotation");
 const creator = document.getElementById("author");
 
@@ -22,6 +23,7 @@ const setTime = () => {
   arbitron(hours, ampm);
 };
 
+// Set the specific period of the day. Change background and sun/moon logo.
 const arbitron = (hour, ampm) => {
   const arb = document.querySelector(".time-of-day");
   const sun = document.getElementById("sun");
@@ -59,10 +61,11 @@ const getCoordinates = () => {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition);
   } else {
-    x.innerHTML = "Geolocation is not supported by this browser.";
+    console.log("Geolocation is not supported by this browser.");
   }
 };
 
+// Set the location of user (country, city) via using user lat and long details.
 const showPosition = async (position) => {
   const country = document.getElementById("country");
   console.log(position);
@@ -72,7 +75,9 @@ const showPosition = async (position) => {
   console.log(locationObj.address);
   let countryCode = locationObj.address.country;
   let city = locationObj.address.city;
-  country.innerHTML = `${countryCode}, ${city}`;
+  country.innerHTML = `${countryCode}, ${
+    city || locationObj.address.country_code
+  }`;
 };
 
 const getCity = async (latitude, longitude) => {
@@ -103,6 +108,28 @@ const run = async () => {
   displayData(data);
 };
 
+// GSAP
+const animationSlide = () => {
+  const bg = document.querySelector(".background");
+  if (!bg.classList.contains(".slide")) {
+    bg.classList.add("slide");
+    console.log("slide up.");
+    gsap.to(bg, 1, {
+      y: "-50%",
+      ease: "bounce",
+    });
+  }
+  if (bg.classList.contains("slide")) {
+    console.log("slide down.");
+    bg.classList.remove("slide");
+    gsap.to(bg, 1, {
+      y: "50%",
+      ease: "bounce",
+    });
+  }
+  console.log(bg.classList);
+};
+
 // Function Calls
 getCoordinates();
 
@@ -111,3 +138,5 @@ document.addEventListener("onload", run(), setTime());
 refreshBtn.addEventListener("click", () => {
   run();
 });
+
+moreBtn.addEventListener("click", animationSlide);
