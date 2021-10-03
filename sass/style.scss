@@ -24,32 +24,41 @@ h2 {
 
 .container-fluid {
   min-height: 100vh;
-  border: 0.1rem solid red;
+  //border: 0.1rem solid red;
+  position: relative;
   .background {
-    border: 0.1rem solid blue;
+    //border: 0.1rem solid blue;
     min-height: 100vh;
-    //padding: 4rem 10rem;
     background-image: url(../images/day.png);
     background-repeat: no-repeat;
     background-size: cover;
     .top {
       min-height: 30%;
-      border: 0.1rem solid green;
+      //border: 0.1rem solid green;
       button {
         border: none;
         background: none;
       }
     }
     .bottom {
-      border: 0.1rem solid yellow;
+      //border: 0.1rem solid yellow;
       min-height: 50%;
       button {
-        border: none;
+        border: 1px solid white;
         background: white;
         font-weight: bolder;
         border-radius: 2rem;
-        padding: 0.5rem 2rem;
+        padding: 0.75rem 3rem;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
       }
     }
+  }
+  .undercard {
+    min-height: 50vh;
+    width: 100%;
+    background: green;
+    position: absolute;
+    z-index: -2;
+    bottom: 0;
   }
 }

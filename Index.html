@@ -13,7 +13,7 @@
     
     <div class="container-fluid">
         <div class="row background justify-content-center align-item-center">
-            <div class="col-12 col-lg-9 bg-primary py-4 p-sm-5 d-flex flex-column justify-content-evenly">
+            <div class="col-12 col-lg-9 py-4 p-sm-5 d-flex flex-column justify-content-evenly">
                 <!-- 1. Row containing quotes sent back from api along with refresh button.  -->
                 <div class="row top">
                     <div class="col-12 col-lg-6 d-flex align-items-start">
@@ -41,9 +41,28 @@
                     </div>
                     <div class="col-12 d-flex align-items-center  justify-content-between">
                         <h3 id="country" class="text-uppercase"></h3>
-                        <button id="more-button" class="shadow">More</button>
+                        <button id="more-button" type='button' class="btn btn-white">More</button>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <div class="row undercard">
+            <div class="col col-sm-6 border border-white">
+                <p>Current Timezone</p>
+                <h2 id="time-zone"></h2>
+            </div>
+            <div class="col col-sm-6 border border-white">
+                <p>Day of the week</p>
+                <h2 id="day-of-week"></h2>
+            </div>
+            <div class="col col-sm-6 border border-white">
+                <p>Day of the year</p>
+                <h2 id="day-of-year"></h2>
+            </div>
+            <div class="col col-sm-6 border border-white">
+                <p>Week number</p>
+                <h2 id="week-nr"></h2>
             </div>
         </div>
     </div>

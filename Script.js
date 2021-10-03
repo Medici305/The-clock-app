@@ -23,6 +23,9 @@ const setTime = () => {
   arbitron(hours, ampm);
 };
 
+// Set data for card underneath (timezone/day of week/year and week number);
+const setCardDetails = () => {};
+
 // Set the specific period of the day. Change background and sun/moon logo.
 const arbitron = (hour, ampm) => {
   const arb = document.querySelector(".time-of-day");
@@ -68,12 +71,13 @@ const getCoordinates = () => {
 // Set the location of user (country, city) via using user lat and long details.
 const showPosition = async (position) => {
   const country = document.getElementById("country");
-  console.log(position);
   let lat = position.coords.latitude;
   let long = position.coords.longitude;
   let locationObj = await getCity(lat, long);
-  console.log(locationObj.address);
   let countryCode = locationObj.address.country;
+  const date = new Date();
+  const offset = date.getTimezoneOffset();
+  console.log(offset); 
   let city = locationObj.address.city;
   country.innerHTML = `${countryCode}, ${
     city || locationObj.address.country_code
@@ -108,26 +112,24 @@ const run = async () => {
   displayData(data);
 };
 
-// GSAP
+// GSAP slide up animation
 const animationSlide = () => {
   const bg = document.querySelector(".background");
-  if (!bg.classList.contains(".slide")) {
+  if (!bg.classList.contains("slide")) {
+    moreBtn.innerHTML = "Less";
     bg.classList.add("slide");
-    console.log("slide up.");
-    gsap.to(bg, 1, {
+    gsap.to(bg, 3, {
       y: "-50%",
-      ease: "bounce",
+      ease: "elastic",
     });
-  }
-  if (bg.classList.contains("slide")) {
-    console.log("slide down.");
+  } else {
+    moreBtn.innerHTML = "More";
     bg.classList.remove("slide");
     gsap.to(bg, 1, {
-      y: "50%",
-      ease: "bounce",
+      y: "0%",
+      ease: "power2.out",
     });
   }
-  console.log(bg.classList);
 };
 
 // Function Calls
