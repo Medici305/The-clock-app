@@ -56,7 +56,10 @@ h2 {
   background: none;
 }
 .container-fluid .background .bottom {
-  min-height: 50%;
+  min-height: 60%;
+}
+.container-fluid .background .bottom h2 {
+  font-size: 3rem;
 }
 .container-fluid .background .bottom button {
   border: 1px solid white;
