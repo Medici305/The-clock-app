@@ -22,6 +22,9 @@
   .bottom .ry {
     justify-content: space-evenly !important;
   }
+  .bottom .time-of-day {
+    text-align: center;
+  }
   .bottom h2 {
     font-size: 2rem !important;
   }
