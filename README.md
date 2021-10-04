@@ -27,7 +27,3 @@
    areas on the page which are awaiting data from external source.
    Have setting icon where if clicked on would pop up with modal where you can alter your location
    having chosen new location new fetch request would be made to api and new data would displayed.
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
